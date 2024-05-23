@@ -3,10 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:tasiwebapp/constant.dart';
 
-class NavigationHomeBar extends StatelessWidget {
-  const NavigationHomeBar({
-    Key? key,
-  }) : super(key: key);
+class HeaderBar extends StatelessWidget {
+  const HeaderBar({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,35 +16,18 @@ class NavigationHomeBar extends StatelessWidget {
         children: <Widget>[
           Image.asset(
             'assets/tasi.jpg',
-            width: 50,
+            width: 60,
           ),
-          SizedBox(width: 10),
-          Text(
-            "Telugu Association of South Island, New Zealand",
-            style: GoogleFonts.headlandOne(fontSize: 18),
-            selectionColor: kTextColor,
+          SizedBox(width: 50),
+          Center(
+            child: Text(
+              "Telugu Association of South Island, New Zealand",
+              style: GoogleFonts.headlandOne(fontSize: 18),
+              selectionColor: kTextColor,
+              textAlign: TextAlign.center,
+            ),
           ),
           Spacer(),
-          NavItem(
-            title: 'Home',
-            tapEvent: () {},
-          ),
-          NavItem(
-            title: 'Members',
-            tapEvent: () {},
-          ),
-          NavItem(
-            title: 'Contact Us',
-            tapEvent: () {},
-          ),
-          NavItem(
-            title: 'Sponsers',
-            tapEvent: () {},
-          ),
-          NavItem(
-            title: 'Admin',
-            tapEvent: () {},
-          ),
         ],
       ),
     );

@@ -1,69 +1,81 @@
 import 'package:flutter/material.dart';
-import 'package:tasiwebapp/model/teammember.dart';
-import 'package:tasiwebapp/views/members/teammemberdetailpage.dart';
-import 'package:tasiwebapp/views/members/teammemberspage.dart';
-import 'package:tasiwebapp/views/others/contact_view.dart';
-import 'package:tasiwebapp/views/others/settings_view.dart';
-import 'package:tasiwebapp/views/others/sponsers_view.dart';
-import 'package:tasiwebapp/widgets/centered_view/centered_view.dart';
-import 'package:tasiwebapp/widgets/navigation_bar/navigation_home_bar.dart';
+import 'package:tasiwebapp/widgets/navigation_bar/header_bar.dart';
 
 class HomeView extends StatefulWidget {
+  const HomeView({super.key});
+
   @override
-  _HomeViewState createState() => _HomeViewState();
+  State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _currentIndex = 0;
-
-  final List<Widget> _children = [
-    Teammemberspage(),
-    SettingsView(),
-    ContactView(),
-    SponsersView(),
+  final PageController _pageController = PageController();
+  List images = [
+    'assets/images/tasi_group1.jpg',
+    'assets/images/tasi_group2.jpg',
+    'assets/images/tasi_group3.jpg',
   ];
-
-  void onTapped(int index) {
+  int currentIndex = 0;
+  void onTap(int index) {
     setState(() {
-      _currentIndex = index;
+      currentIndex = index;
+    });
+  }
+
+  void _nextPage() {
+    if (currentIndex < images.length - 1) {
+      _pageController.animateToPage(
+        currentIndex + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController.addListener(() {
+      setState(() {
+        currentIndex = _pageController.page!.toInt();
+      });
     });
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(title: const NavigationHomeBar()),
-      body: CenteredView(
-        child: ListView.builder(
-          itemCount: teamMembers.length,
-          itemBuilder: (context, index) {
-            final teamMember = teamMembers[index];
-            return ListTile(
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage(teamMember.photoUrl),
-              ),
-              title: Text(teamMember.name),
-              subtitle: Text(teamMember.role),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        TeamMemberDetailPage(teamMember: teamMember),
-                  ),
-                );
-              },
-            );
-          },
-        ),
-      ),
-    );
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: AppBar(title: HeaderBar()),
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          Expanded(
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: images.length,
+              itemBuilder: (context, index) {
+                return Image.asset(
+                  images[index],
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                );
+              },
+            ),
+          ),
+          if (currentIndex < images.length - 1)
+            ElevatedButton(
+              onPressed: _nextPage,
+              child: Text('Next'),
+            ),
+        ],
+      ),
+    );
   }
 }

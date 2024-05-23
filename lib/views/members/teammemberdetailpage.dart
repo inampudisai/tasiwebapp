@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:tasiwebapp/model/teammember.dart";
+import "package:tasiwebapp/widgets/navigation_bar/header_bar.dart";
 import "package:tasiwebapp/widgets/navigation_bar/navigation_home_bar.dart";
 
 class TeamMemberDetailPage extends StatelessWidget {
@@ -10,35 +11,39 @@ class TeamMemberDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const NavigationHomeBar()),
+      appBar: AppBar(title: HeaderBar()),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: CircleAvatar(
-                radius: 100,
-                backgroundImage: NetworkImage(teamMember.photoUrl),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: NetworkImage(teamMember.photoUrl),
+                ),
               ),
-            ),
-            SizedBox(height: 16),
-            Text(
-              teamMember.name,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 8),
-            Text(
-              teamMember.role,
-              style: const TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
-            ),
-            SizedBox(height: 16),
-            // Add more details if needed
-            Text(
-              'Additional details about ${teamMember.name} can be placed here.',
-              style: const TextStyle(fontSize: 16),
-            ),
-          ],
+              const SizedBox(height: 16),
+              Text(
+                teamMember.name,
+                style:
+                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                teamMember.role,
+                style:
+                    const TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
+              ),
+              const SizedBox(height: 16),
+              // Add more details if needed
+              Text(
+                'Additional details about ${teamMember.name} can be placed here.',
+                style: const TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
         ),
       ),
     );

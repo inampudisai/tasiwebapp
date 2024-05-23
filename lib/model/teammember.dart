@@ -8,10 +8,34 @@ class TeamMember {
 
 final List<TeamMember> teamMembers = [
   TeamMember(
-      name: 'Alice Smith',
-      role: 'Project Manager',
+      name: 'Sundeep Dagupati',
+      role: 'President',
       photoUrl: '/assets/forest.png'),
   TeamMember(
-      name: 'Bob Johnson', role: 'Developer', photoUrl: '/assets/forest.png'),
+      name: 'Sujatha Panduri',
+      role: 'General Secretary',
+      photoUrl: '/assets/forest.png'),
+  TeamMember(
+      name: 'Ashok Ambati',
+      role: 'Vice President',
+      photoUrl: '/assets/forest.png'),
+  TeamMember(
+      name: 'Vasanth Kumar',
+      role: 'Joint Secretary',
+      photoUrl: '/assets/forest.png'),
+  TeamMember(
+      name: 'Sai Inampudi',
+      role: 'Joint Secretary',
+      photoUrl: '/assets/forest.png'),
+  TeamMember(
+      name: 'Ramya M', role: 'Treasurer', photoUrl: '/assets/forest.png'),
+  TeamMember(
+      name: 'Tejaswin Kanagala',
+      role: 'Executive Committee',
+      photoUrl: '/assets/forest.png'),
+  TeamMember(
+      name: 'Satheesh Gollapudi',
+      role: 'Executive Committee',
+      photoUrl: '/assets/forest.png'),
   // Add more team members
 ];
