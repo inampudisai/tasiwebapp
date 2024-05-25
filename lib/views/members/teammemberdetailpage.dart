@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import "package:tasiwebapp/model/teammember.dart";
 import "package:tasiwebapp/widgets/navigation_bar/header_bar.dart";
-import "package:tasiwebapp/widgets/navigation_bar/navigation_home_bar.dart";
 
 class TeamMemberDetailPage extends StatelessWidget {
   final TeamMember teamMember;
@@ -21,7 +20,7 @@ class TeamMemberDetailPage extends StatelessWidget {
               Center(
                 child: CircleAvatar(
                   radius: 100,
-                  backgroundImage: NetworkImage(teamMember.photoUrl),
+                  backgroundImage: AssetImage(teamMember.photoUrl),
                 ),
               ),
               const SizedBox(height: 16),

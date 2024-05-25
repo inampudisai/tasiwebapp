@@ -15,6 +15,11 @@ class _HomeViewState extends State<HomeView> {
     'assets/images/tasi_group2.jpg',
     'assets/images/tasi_group3.jpg',
   ];
+  List mobImages = [
+    'assets/images/tasi_group1_mob.jpg',
+    'assets/images/tasi_group2_mob.jpg',
+    'assets/images/tasi_group3_mob.jpg',
+  ];
   int currentIndex = 0;
   void onTap(int index) {
     setState(() {
@@ -51,30 +56,49 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    double width = size.width;
+    double height = size.height;
     return Scaffold(
-      appBar: AppBar(title: HeaderBar()),
+      appBar: AppBar(title: const HeaderBar()),
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: images.length,
-              itemBuilder: (context, index) {
-                return Image.asset(
-                  images[index],
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                );
-              },
+      body: SizedBox(
+        width: width,
+        height: height,
+        child: Column(
+          children: [
+            Expanded(
+              child: (size.width >= 600)
+                  ? PageView.builder(
+                      controller: _pageController,
+                      itemCount: images.length,
+                      itemBuilder: (context, index) {
+                        return Image.asset(
+                          key: const ValueKey('homeScreenImageId'),
+                          images[index],
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                        );
+                      },
+                    )
+                  : PageView.builder(
+                      controller: _pageController,
+                      itemCount: mobImages.length,
+                      itemBuilder: (context, index) {
+                        return Image.asset(
+                          key: const ValueKey('homeScreenImageId'),
+                          mobImages[index],
+                          fit: BoxFit.fitWidth,
+                        );
+                      },
+                    ),
             ),
-          ),
-          if (currentIndex < images.length - 1)
-            ElevatedButton(
-              onPressed: _nextPage,
-              child: Text('Next'),
-            ),
-        ],
+            if (currentIndex < images.length - 1)
+              ElevatedButton(
+                onPressed: _nextPage,
+                child: const Text(key: ValueKey('homeNextButtonId'), 'Next'),
+              ),
+          ],
+        ),
       ),
     );
   }

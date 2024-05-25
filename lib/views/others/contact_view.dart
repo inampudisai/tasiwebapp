@@ -35,7 +35,7 @@ class _ContactViewState extends State<ContactView> {
       // You can integrate with an email API or backend here
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Message Sent!')),
+        const SnackBar(content: Text('Message Sent!')),
       );
 
       // Clear the form fields
@@ -49,7 +49,7 @@ class _ContactViewState extends State<ContactView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Contact Us'),
+        title: const Text('Contact Us'),
       ),
       body: Center(
         child: Padding(
@@ -63,7 +63,7 @@ class _ContactViewState extends State<ContactView> {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(0, 3), // changes position of shadow
+                  offset: const Offset(0, 3), // changes position of shadow
                 ),
               ],
               border: Border.all(
@@ -79,7 +79,7 @@ class _ContactViewState extends State<ContactView> {
                 children: <Widget>[
                   TextFormField(
                     controller: _nameController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Name',
                     ),
                     validator: (value) {
@@ -91,7 +91,7 @@ class _ContactViewState extends State<ContactView> {
                   ),
                   TextFormField(
                     controller: _emailController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Email',
                     ),
                     validator: (value) {
@@ -106,7 +106,7 @@ class _ContactViewState extends State<ContactView> {
                   ),
                   TextFormField(
                     controller: _messageController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Message',
                     ),
                     maxLines: 5,
@@ -117,11 +117,11 @@ class _ContactViewState extends State<ContactView> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Center(
                     child: ElevatedButton(
                       onPressed: _submitForm,
-                      child: Text('Submit'),
+                      child: const Text('Submit'),
                     ),
                   ),
                 ],

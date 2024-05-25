@@ -6,10 +6,10 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+      margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
       child: Row(
         children: <Widget>[
-          Expanded(
+          const Expanded(
               flex: 1,
               child: Text(
                 'All Right Reserved',
@@ -44,8 +44,7 @@ class Footer extends StatelessWidget {
 }
 
 class NavItem extends StatelessWidget {
-  const NavItem({Key? key, required this.title, required this.tapEvent})
-      : super(key: key);
+  const NavItem({super.key, required this.title, required this.tapEvent});
 
   final String title;
   final GestureTapCallback tapEvent;
@@ -56,10 +55,10 @@ class NavItem extends StatelessWidget {
       onTap: tapEvent,
       hoverColor: Colors.transparent,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Text(
           title,
-          style: TextStyle(color: kPrimaryColor, fontSize: 12),
+          style: const TextStyle(color: kPrimaryColor, fontSize: 12),
         ),
       ),
     );

@@ -16,19 +16,19 @@ class _HomePaneViewPageState extends State<HomePaneViewPage> {
       children: [
         Container(
           margin: EdgeInsets.all(24),
-          child: Text(
+          decoration: BoxDecoration(color: Colors.yellow),
+          child: const Text(
             "text 1",
             style: TextStyle(fontSize: 32),
           ),
-          decoration: BoxDecoration(color: Colors.yellow),
         ),
         Container(
-          margin: EdgeInsets.all(24),
-          child: Text(
+          margin: const EdgeInsets.all(24),
+          decoration: const BoxDecoration(color: Colors.green),
+          child: const Text(
             "text 2",
             style: TextStyle(fontSize: 32),
           ),
-          decoration: BoxDecoration(color: Colors.green),
         ),
       ],
     ));

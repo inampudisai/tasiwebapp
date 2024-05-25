@@ -17,7 +17,7 @@ class NavigateBar extends StatelessWidget {
               context,
               MaterialPageRoute<void>(
                 builder: (BuildContext context) {
-                  return const Teammemberspage();
+                  return const TeamMembersPage();
                 },
               ),
             );

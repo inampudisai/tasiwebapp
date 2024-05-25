@@ -5,8 +5,8 @@ import 'package:tasiwebapp/constant.dart';
 
 class NavigationHomeBar extends StatelessWidget {
   const NavigationHomeBar({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +52,7 @@ class NavigationHomeBar extends StatelessWidget {
 }
 
 class NavItem extends StatelessWidget {
-  const NavItem({Key? key, required this.title, required this.tapEvent})
-      : super(key: key);
+  const NavItem({super.key, required this.title, required this.tapEvent});
 
   final String title;
   final GestureTapCallback tapEvent;

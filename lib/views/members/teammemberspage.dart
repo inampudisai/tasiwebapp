@@ -3,14 +3,14 @@ import 'package:tasiwebapp/model/teammember.dart';
 import 'package:tasiwebapp/views/members/teammemberdetailpage.dart';
 import 'package:tasiwebapp/widgets/navigation_bar/header_bar.dart';
 
-class Teammemberspage extends StatelessWidget {
-  const Teammemberspage({super.key});
+class TeamMembersPage extends StatelessWidget {
+  const TeamMembersPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: HeaderBar()),
+      appBar: AppBar(title: const HeaderBar()),
       backgroundColor: Colors.white,
       body: Container(
         width: size.width,
@@ -21,7 +21,7 @@ class Teammemberspage extends StatelessWidget {
             final teamMember = teamMembers[index];
             return ListTile(
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(teamMember.photoUrl, scale: 100),
+                backgroundImage: AssetImage(teamMember.photoUrl),
               ),
               title: Text(
                 teamMember.name,

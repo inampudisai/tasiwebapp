@@ -10,23 +10,30 @@ class HeaderBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Row(
         children: <Widget>[
           Image.asset(
-            'assets/tasi.jpg',
+            'tasi.jpg',
             width: 60,
           ),
-          SizedBox(width: 50),
+          const SizedBox(width: 20),
           Center(
-            child: Text(
-              "Telugu Association of South Island, New Zealand",
-              style: GoogleFonts.headlandOne(fontSize: 18),
-              selectionColor: kTextColor,
-              textAlign: TextAlign.center,
-            ),
-          ),
+              child: (size.width >= 700.0)
+                  ? Text(
+                      "Telugu Association of South Island, New Zealand",
+                      style: GoogleFonts.headlandOne(fontSize: 18),
+                      selectionColor: kTextColor,
+                      textAlign: TextAlign.center,
+                    )
+                  : Text(
+                      "TASI, New Zealand",
+                      style: GoogleFonts.headlandOne(fontSize: 14),
+                      selectionColor: kTextColor,
+                      textAlign: TextAlign.center,
+                    )),
           Spacer(),
         ],
       ),
@@ -35,8 +42,7 @@ class HeaderBar extends StatelessWidget {
 }
 
 class NavItem extends StatelessWidget {
-  const NavItem({Key? key, required this.title, required this.tapEvent})
-      : super(key: key);
+  const NavItem({super.key, required this.title, required this.tapEvent});
 
   final String title;
   final GestureTapCallback tapEvent;
