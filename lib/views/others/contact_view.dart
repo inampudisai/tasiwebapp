@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/navigation_bar/header_bar.dart';
+
 class ContactView extends StatefulWidget {
   const ContactView({super.key});
 
@@ -49,7 +51,7 @@ class _ContactViewState extends State<ContactView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Contact Us'),
+        title: AppBar(title: const HeaderBar()),
       ),
       body: Center(
         child: Padding(
