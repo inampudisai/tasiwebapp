@@ -16,7 +16,7 @@ class HeaderBar extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Image.asset(
-            'tasi.jpg',
+            'assets/tasi.jpg',
             width: 60,
           ),
           const SizedBox(width: 20),
